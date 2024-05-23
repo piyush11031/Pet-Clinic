@@ -1,4 +1,4 @@
-# Spring Petclinic improved
+# Petclinic
 
 Improved with :
 * Spring MVC
