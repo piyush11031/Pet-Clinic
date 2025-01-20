@@ -24,7 +24,7 @@ public class VeterinaryService {
 	}
 	
 	public int updateVet(Veterinary vet) {
-		return template.update("update veterinary set FirstName = :FirstName, LastName = :LastName WHERE Id = :Id", new BeanPropertySqlParameterSource(vet));
+		return template.update("updLName = :FirstName, LastName = :LastName WHERE Id = :Id", new BeanPropertySqlParameterSource(vet));
 	}
 	
 	public int addVet(Veterinary vet) {

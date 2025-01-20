@@ -18,10 +18,13 @@ import io.github.adrmrv.springpetclinicimproved.PaginationItem;
 @RequestMapping("/clients")
 public class ClientController {
 
-	@Autowired
-	ClientService service;
-	
-	@GetMapping
+	private final ClientService service;
+
+    public ClientController(ClientService service) {
+        this.service = service;
+    }
+
+    @GetMapping
 	public Object list(
 			@RequestParam(defaultValue = "") String name,
 			@RequestParam(defaultValue = "1") int p,

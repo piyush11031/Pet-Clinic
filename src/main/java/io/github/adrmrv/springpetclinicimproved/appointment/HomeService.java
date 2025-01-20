@@ -7,8 +7,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class HomeService {
-    @Autowired
-    NamedParameterJdbcTemplate template;
+    private final NamedParameterJdbcTemplate template;
+
+    public HomeService(NamedParameterJdbcTemplate template) {
+        this.template = template;
+    }
 
     public Object getCounts() {
         var res = template.query("""

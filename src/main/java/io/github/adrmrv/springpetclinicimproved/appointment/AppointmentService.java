@@ -19,8 +19,11 @@ import lombok.Data;
 @Service
 public class AppointmentService {
 
-    @Autowired
-    NamedParameterJdbcTemplate template;
+    private final NamedParameterJdbcTemplate template;
+
+    public AppointmentService(NamedParameterJdbcTemplate template) {
+        this.template = template;
+    }
 
     public Object getSchedule(LocalDate Day) {
         List<Map<String, Object>> list = template.queryForList("""

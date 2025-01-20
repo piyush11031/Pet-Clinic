@@ -31,11 +31,23 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class AppointmentController {
-    @Autowired
-    AppointmentService appService;
+    private final AppointmentService appService;
+    private final VeterinaryService vservice;
+    private final HomeService homeService;
+    private final ClientService cService;
+    private final PetService petService;
+    private final PetTypeService pTypeService;
 
-    @Autowired
-    VeterinaryService vservice;
+
+
+    public AppointmentController(AppointmentService appService, VeterinaryService vservice, HomeService homeService, ClientService cService, PetService petService, PetTypeService pTypeService) {
+        this.appService = appService;
+        this.vservice = vservice;
+        this.homeService = homeService;
+        this.cService = cService;
+        this.petService = petService;
+        this.pTypeService = pTypeService;
+    }
 
     @GetMapping("/schedule")
     public String daily(Model model, @RequestParam(required = false) LocalDate Day) {
@@ -59,11 +71,10 @@ public class AppointmentController {
         return "WeeklySchedule";
     }
 
-    @Autowired
-    HomeService homeService;
 
     @GetMapping("/")
     public String home(Model model, HttpSession session) {
+
         model.addAttribute("vets", vservice.getAllVets());
         model.addAttribute("counts", homeService.getCounts());
         model.addAttribute("message", session.getAttribute("message"));
@@ -71,8 +82,6 @@ public class AppointmentController {
         return "Home";
     }
 
-    @Autowired
-    ClientService cService;
 
     @GetMapping("/appointments/new")
     public String newAppointment(Model model, HttpSession session) {
@@ -145,11 +154,6 @@ public class AppointmentController {
         return "redirect:/appointments/new";
     }
 
-    @Autowired 
-    PetService petService;
-
-    @Autowired
-    PetTypeService pTypeService;
 
     @GetMapping("/pet/select")
     public String list(
