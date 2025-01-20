@@ -15,11 +15,13 @@ import io.github.adrmrv.springpetclinicimproved.veterinary.VeterinaryService;
 @Controller
 public class OperatingHoursController {
 
-    @Autowired
-    OperatingHoursService service;
+    private final OperatingHoursService service;
+    private final VeterinaryService vService;
 
-    @Autowired
-    VeterinaryService vService;
+    public OperatingHoursController(OperatingHoursService service, VeterinaryService vService) {
+        this.service = service;
+        this.vService = vService;
+    }
 
     @GetMapping("/hours")
     public String defaultHours() {

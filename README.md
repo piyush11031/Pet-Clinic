@@ -1,9 +1,9 @@
 # Petclinic
 
-Improved with :
+Technology Used :
 * Spring MVC
 * JDBC
-* MySQL
+* SQLite
 * Lombok
 * Thymeleaf
 * Bootstrap
@@ -14,6 +14,9 @@ Improved with :
 ./mvnw spring-boot:run
 ```
 The database is included (clinic.db)
+
+## Demo Video: 
+https://kof36l3s47.ufs.sh/f/45W8ik1mcGKFiauqf5gc04Y6uPe7ITnwb9fo8UWJjDytVahv
 
 
 ## Screenshots :

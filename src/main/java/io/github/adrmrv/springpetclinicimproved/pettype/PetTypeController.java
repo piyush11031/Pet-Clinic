@@ -10,10 +10,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class PetTypeController {
 
-	@Autowired
-	private PetTypeService petTypeService;
-	
-	@GetMapping("/pet/types")
+	private final PetTypeService petTypeService;
+
+    public PetTypeController(PetTypeService petTypeService) {
+        this.petTypeService = petTypeService;
+    }
+
+    @GetMapping("/pet/types")
 	public String list(Model model)
 	{
 		model.addAttribute("petTypes", petTypeService.findAll());

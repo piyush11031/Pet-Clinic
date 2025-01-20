@@ -67,7 +67,8 @@ public class AppointmentService {
                         ), OpHours as (
                         	SELECT d, STRFTIME('%w', d) w, STRFTIME('%H:%M', d) tod
                         	from Hours
-                        	left join OperatingHours oh on oh.DayOfWeek = STRFTIME('%w', d) and STRFTIME('%H:%M', d) = oh.TimeOfDay and oh.VetId = :Id
+                        	left join OperatingHours oh 
+                        	    on (oh.DayOfWeek = STRFTIME('%w', d) and STRFTIME('%H:%M', d) = oh.TimeOfDay and oh.VetId = :Id)
                         	WHERE STRFTIME('%HH', d) BETWEEN '08:00:00' and '19:00:00'
                         )
                         SELECT tod, FirstName || ' ' || LastName Owner

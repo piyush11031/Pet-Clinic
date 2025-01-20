@@ -51,7 +51,8 @@ public class AppointmentController {
 
     @GetMapping("/schedule")
     public String daily(Model model, @RequestParam(required = false) LocalDate Day) {
-        Day = Day == null ? LocalDate.now() : Day;
+        //If the Day field in NUll, then provide schedule for current day, otherwise show schedule for the selected day in form
+        Day = (Day == null )? LocalDate.now() : Day;
         model.addAttribute("Day", Day);
         model.addAttribute("Id", 0);
         model.addAttribute("schedule", appService.getSchedule(Day));

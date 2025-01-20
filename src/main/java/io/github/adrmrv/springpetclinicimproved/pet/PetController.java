@@ -22,11 +22,13 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/pets")
 public class PetController {
-    @Autowired
-    PetService service;
+    private final PetService service;
+    private final PetTypeService pTypeService;
 
-    @Autowired
-    PetTypeService pTypeService;
+    public PetController(PetService service, PetTypeService pTypeService) {
+        this.service = service;
+        this.pTypeService = pTypeService;
+    }
 
     @GetMapping
     public String list(
