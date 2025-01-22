@@ -16,8 +16,7 @@ Technology Used :
 The database is included (clinic.db)
 
 ## Demo Video: 
-https://kof36l3s47.ufs.sh/f/45W8ik1mcGKFiauqf5gc04Y6uPe7ITnwb9fo8UWJjDytVahv
-
+https://drive.google.com/file/d/1jNdc3UJV79x70wOSvok29Xmh0pVVGFp9/view?usp=sharing
 
 ## Screenshots :
 
